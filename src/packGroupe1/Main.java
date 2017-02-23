@@ -4,7 +4,7 @@ public class Main {
 	
 	private int time1=4000, time2=8000;
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 			Question question = new Question("Bob","Femmes célèbres","Victoria");
 			question.addClue("J'ai été reine du Royaume-Uni, d'Irlande et du Canada.");
@@ -29,7 +29,5 @@ public class Main {
 				System.out.println(question.getAnswer());
 			} catch(InterruptedException e) {
 				System.out.println("<!> Une erreur est survenue !");
-			}
+			}*/
 	}
-
-}
