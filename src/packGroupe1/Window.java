@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 
 public class Window extends JFrame{
 	
-	private JPanel jpfenetre, jpind1, jpind2,jpind3, jpnomauteur, jpnomtheme;
+	private JPanel jpwindow, jpind1, jpind2,jpind3, jpnomauteur, jpnomtheme;
 	private JLabel jltheme,jlnomtheme,jlauteur,jlreponse, jlclue1, jlclue2, jlclue3, jlnameauthor;
 	private JTextField jtanswer;
 	private JButton jbdelete,jbok;
