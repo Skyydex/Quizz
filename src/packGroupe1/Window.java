@@ -2,8 +2,11 @@ package packGroupe1;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -17,10 +20,12 @@ import javax.swing.SwingConstants;
 
 public class Window extends JFrame{
 	
-	private JPanel jpwindow, jpind1, jpind2,jpind3, jpnomauteur, jpnomtheme;
-	private JLabel jltheme,jlnomtheme,jlauteur,jlreponse, jlclue1, jlclue2, jlclue3, jlnameauthor;
+	private JPanel jpwindow, jpclue1, jpclue2,jpclue3, jpnameauthor, jpnametheme,jpscore;
+	private JLabel jltheme,jlnametheme,jlauthor,jlanswer, jlclue1, jlclue2, jlclue3, jlnameauthor;
 	private JTextField jtanswer;
 	private JButton jbdelete,jbok;
+	// Font Style
+	private final String FONT_NAME = "Calibri";
 
 	public static void main(String[] args){
 		new Window().setVisible(true);
@@ -90,55 +95,63 @@ public class Window extends JFrame{
 	
 	//Panel
 	public JPanel getJclue1() {
-		if(jpind1==null) {
-			jpind1=new JPanel(new GridLayout(1,1));
-			jpind1.add(getJlclue1());
-			jpind1.setBorder(BorderFactory.createTitledBorder(""));
+		if(jpclue1==null) {
+			jpclue1=new JPanel(new GridLayout(1,1));
+			jpclue1.add(getJlclue1());
+			jpclue1.setBorder(BorderFactory.createTitledBorder(""));
 		}
-		return jpind1;
+		return jpclue1;
 	}
 
 	public JPanel getJclue2() {
-		if(jpind2==null) {
-			jpind2=new JPanel(new GridLayout(1,1));
-			jpind2.add(getJlclue2());
-			jpind2.setBorder(BorderFactory.createTitledBorder(""));
+		if(jpclue2==null) {
+			jpclue2=new JPanel(new GridLayout(1,1));
+			jpclue2.add(getJlclue2());
+			jpclue2.setBorder(BorderFactory.createTitledBorder(""));
 		}
-		return jpind2;
+		return jpclue2;
 	}
 
 	public JPanel getJclue3() {
-		if(jpind3==null) {
-			jpind3=new JPanel(new GridLayout(1,1));
-			jpind3.add(getJlclue3());
-			jpind3.setBorder(BorderFactory.createTitledBorder(""));
+		if(jpclue3==null) {
+			jpclue3=new JPanel(new GridLayout(1,1));
+			jpclue3.add(getJlclue3());
+			jpclue3.setBorder(BorderFactory.createTitledBorder(""));
 		}
-		return jpind3;
+		return jpclue3;
 	}
 	
 	public JPanel getJpnameauthor() {
-		if(jpnomauteur==null) {
-			jpnomauteur=new JPanel(new GridLayout(1,1));
-			jpnomauteur.add(getJlnameauthor());
-			jpnomauteur.setBorder(BorderFactory.createTitledBorder(""));
+		if(jpnameauthor==null) {
+			jpnameauthor=new JPanel(new GridLayout(1,1));
+			jpnameauthor.add(getJlnameauthor());
+			jpnameauthor.setBorder(BorderFactory.createTitledBorder(""));
 		}
-		return jpnomauteur;
+		return jpnameauthor;
 	}
 	
 	public JPanel getJpnametheme() {
-		if(jpnomtheme==null) {
-			jpnomtheme=new JPanel(new GridLayout(1,1));
-			jpnomtheme.add(getJlnametheme());
-			jpnomtheme.setBorder(BorderFactory.createTitledBorder(""));
-			jpnomtheme.setBackground(Color.WHITE);
+		if(jpnametheme==null) {
+			jpnametheme=new JPanel(new GridLayout(1,1));
+			jpnametheme.add(getJlnametheme());
+			jpnametheme.setBorder(BorderFactory.createTitledBorder(""));
+			jpnametheme.setBackground(Color.WHITE);
 		}
-		return jpnomtheme;
+		return jpnametheme;
 	}
 	
 	//Button
 	public JButton getJbdelete() {
-		if(jbdelete==null)
+		if(jbdelete==null){
 			jbdelete=new JButton("Effacer");
+			jbdelete.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent e) {
+					getJtanswer().setText("");
+					
+				}
+			});
+		}
 		return jbdelete;
 	}
 
@@ -150,28 +163,36 @@ public class Window extends JFrame{
 	
 	//Label
 	public JLabel getJltheme() {
-		if(jltheme==null)
+		if(jltheme==null){
 			jltheme=new JLabel("Thème:");
+			jltheme.setFont(new Font(FONT_NAME, Font.BOLD, 15));
+		}
 		return jltheme;
 	}
 
 	public JLabel getJlnametheme() {
-		if(jlnomtheme==null) {
-			jlnomtheme=new JLabel("Femmes célèbres");
+		if(jlnametheme==null) {
+			jlnametheme=new JLabel("Femmes célèbres");
+			jlnametheme.setFont(new Font(FONT_NAME, Font.BOLD, 25));
+
 		}
-		return jlnomtheme;
+		return jlnametheme;
 	}
 
 	public JLabel getJlauthor() {
-		if(jlauteur==null)
-			jlauteur=new JLabel("Auteur:");
-		return jlauteur;
+		if(jlauthor==null)
+			jlauthor=new JLabel("Auteur:");
+			jlauthor.setFont(new Font(FONT_NAME, Font.BOLD, 15));
+
+		return jlauthor;
 	}
 
 	public JLabel getJlanswer() {
-		if(jlreponse==null)
-			jlreponse=new JLabel(" Réponse ");
-		return jlreponse;
+		if(jlanswer==null)
+			jlanswer=new JLabel(" Réponse ");
+			jlanswer.setFont(new Font(FONT_NAME, Font.BOLD, 15));
+
+		return jlanswer;
 	}
 	
 	public JLabel getJlclue1() {
